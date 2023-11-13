@@ -43,7 +43,7 @@ def main():
             </style>
             """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-    if data_con_msg:
+    if data_load_failed:
         st.write("data could not be loaded please contact your app admin")
     # Create tabs
     tabs = ["Collect data", "Results", "Historical data"]
