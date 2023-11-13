@@ -26,7 +26,17 @@ def collect_data_tab():
         dimension_1a = st.text_input("Dimension A", "")
         dimension_2a = st.text_input("Dimension B", "")
         dimension_3a = st.text_input("Dimension C", "")
-
+        if st.button("Save data"):
+            time_stamp=datetime.datetime.now().strftime("%Y-%m-%d-%H:%M:%S")
+            df2 = pd.DataFrame(
+            {
+                "Time_stamp": [time_stamp, time_stamp, time_stamp],
+                "Dimension": ["1A","1B", "1C"],
+                "Value": [dimension_1a, dimension_2a, dimension_3a]
+            })
+            df_appended=pd.concat([df,df2])
+            df_appended.to_csv(data_file_path, index=False)
+            st.success("Data appended successfully!")
 
 def results_tab():
     st.write("## Results")
