@@ -1,15 +1,17 @@
 import streamlit as st
 
+st.set_page_config(layout="wide")
+
 def collect_data_tab():
-    st.write("## Collect Data")
+    s1=st.expander("Sample 1", expanded=False)
+    
+    s1.write("## Collect Data")
 
-    col1, col2 = st.columns([2, 1])
-
+    col1, col2 = s1.columns([2, 1])
     
     # Left column with an image
     col1.image("test_image.png", use_column_width=True)
     # Right column with input rows
-
     with col2:
         dimension_a=st.text_input("Dimension A", "")
 
@@ -32,7 +34,7 @@ def main():
 
     # Create tabs
     tabs = ["Collect data", "Results", "Historical data"]
-    selected_tab = st.sidebar.radio("Select Tab", tabs)
+    selected_tab = st.sidebar.radio("Select page", tabs)
 
     # Display content based on selected tab
     if selected_tab == "Collect data":
