@@ -3,6 +3,13 @@ import datetime
 
 st.set_page_config(layout="wide")
 
+data_file_path = "data.csv"
+try:
+    df = pd.read_csv(data_file_path)
+except FileNotFoundError:
+    # Create an empty DataFrame if the file doesn't exist
+    data_con_msg="data could not be loaded please contact your app admin"
+
 def collect_data_tab():
     s1=st.expander("Sample 1", expanded=False)
     
@@ -24,7 +31,7 @@ def results_tab():
 
 def historical_data_tab():
     st.write("## Historical Data")
-
+    st.write(df)
 def main():
     st.title("CNC data")
     hide_streamlit_style = """
@@ -34,7 +41,8 @@ def main():
             </style>
             """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-
+    if data_con_msg!="":
+        st.write(data_con_msg)
     # Create tabs
     tabs = ["Collect data", "Results", "Historical data"]
     selected_tab = st.sidebar.radio("Select page", tabs)
