@@ -14,9 +14,9 @@ def collect_data_tab():
     col1.image("test_image.png", width=400)
     # Right column with input rows
     with col2:
-        dimension_1a = st.text_input("Dimension A", "",type=float)
-        dimension_2a = st.text_input("Dimension B", "",type=float)
-        dimension_3a = st.text_input("Dimension C", "",type=float)
+        dimension_1a = st.text_input("Dimension A", "")
+        dimension_2a = st.text_input("Dimension B", "")
+        dimension_3a = st.text_input("Dimension C", "")
 
 
 def results_tab():
