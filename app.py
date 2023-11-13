@@ -5,7 +5,7 @@ def collect_data_tab():
     st.sidebar.text("Sidebar content for Collect Data tab")
 
     # Left column with an image
-    st.image("your_image_path.jpg", use_column_width=True)
+    st.image("test_image.png", use_column_width=True)
 
     # Right column with input rows
     st.write("### Input Rows")
