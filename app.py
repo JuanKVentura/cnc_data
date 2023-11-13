@@ -1,4 +1,5 @@
 import streamlit as st
+import datetime
 
 st.set_page_config(layout="wide")
 
@@ -10,10 +11,12 @@ def collect_data_tab():
     col1, col2 = s1.columns([2, 1])
     
     # Left column with an image
-    col1.image("test_image.png", use_column_width=True)
+    col1.image("test_image.png", width=400)
     # Right column with input rows
     with col2:
-        dimension_a=st.text_input("Dimension A", "")
+        dimension_1a = st.text_input("Dimension A", "",type=float)
+        dimension_2a = st.text_input("Dimension B", "",type=float)
+        dimension_3a = st.text_input("Dimension C", "",type=float)
 
 
 def results_tab():
