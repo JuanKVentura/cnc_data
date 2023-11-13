@@ -2,30 +2,33 @@ import streamlit as st
 
 def collect_data_tab():
     st.write("## Collect Data")
-    st.sidebar.text("Sidebar content for Collect Data tab")
 
+    col1, col2 = st.columns([2, 1])
+
+    
     # Left column with an image
-    st.image("test_image.png", use_column_width=True)
-
+    col1.image("test_image.png", use_column_width=True)
     # Right column with input rows
-    st.write("### Input Rows")
-    dimension_a = st.text_input("Dimension A", "")
-    dimension_b = st.text_input("Dimension B", "")
-    dimension_c = st.text_input("Dimension C", "")
-    dimension_d = st.text_input("Dimension D", "")
+
+    with col2:
+        dimension_a=st.text_input("Dimension A", "")
+
 
 def results_tab():
     st.write("## Results")
-    st.sidebar.text("Sidebar content for Results tab")
-    # Add your code for the Results tab here
 
 def historical_data_tab():
     st.write("## Historical Data")
-    st.sidebar.text("Sidebar content for Historical Data tab")
-    # Add your code for the Historical Data tab here
 
 def main():
-    st.title("Streamlit App with Tabs")
+    st.title("CNC data")
+    hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
     # Create tabs
     tabs = ["Collect data", "Results", "Historical data"]
