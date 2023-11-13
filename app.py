@@ -20,7 +20,7 @@ def collect_data_tab():
     col1, col2 = s1.columns([2, 1])
     
     # Left column with an image
-    col1.image("test_image.png", width=400)
+    col1.image("sample1.jpg", width=400)
     # Right column with input rows
     with col2:
         dimension_1a = st.text_input("Dimension A", "")
