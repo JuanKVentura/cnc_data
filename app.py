@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import datetime
 
-st.set_page_config(layout="wide")
 
 data_file_path = "data.csv"
 try:
@@ -45,6 +44,10 @@ def historical_data_tab():
     st.write("## Historical Data")
     st.write(df)
 def main():
+    st.set_page_config(layout="wide")
+    #GithubIcon {
+      visibility: hidden;
+    }
     st.title("CNC data")
     hide_streamlit_style = """
             <style>
