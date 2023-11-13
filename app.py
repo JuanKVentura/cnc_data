@@ -45,14 +45,14 @@ def historical_data_tab():
     st.write(df)
 def main():
     st.set_page_config(layout="wide")
-    #GithubIcon {
-      visibility: hidden;
-    }
     st.title("CNC data")
     hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
+            #GithubIcon {
+              visibility: hidden;
+                }
             </style>
             """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
