@@ -58,8 +58,10 @@ def main():
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
     # Initialize connection.
-    conn = st.connection('mysql', type='sql')
-
+    try:
+        conn = st.connection('mysql', type='sql')
+        st.sucess("DB connection OK")
+        
     # Perform query.
     df = conn.query('SELECT * from CNCDATA;', ttl=600)
     
