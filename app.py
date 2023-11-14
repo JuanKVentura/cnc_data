@@ -56,6 +56,17 @@ def main():
             </style>
             """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
+    # Initialize connection.
+    conn = st.connection('mysql', type='sql')
+
+    # Perform query.
+    df = conn.query('SELECT * from CNCDATA;', ttl=600)
+    
+    # Print results.
+    for row in df.itertuples():
+        st.write(f"{row.time_stamp} has a value {row.dimension} of {row.value}")
+    
     if data_load_failed:
         st.write("data could not be loaded please contact your app admin")
     # Create tabs
