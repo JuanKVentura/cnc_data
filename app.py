@@ -47,14 +47,14 @@ def historical_data_tab():
         conn = st.connection('mysql', type='sql')
         st.sucess("DB connection OK")
     except:
-        pass
+        st.write("Error in db connection")
         
     # Perform query.
-    #dbdata = conn.query('SELECT * from CNCDATA;', ttl=600)
+    dbdata = conn.query('SELECT * from CNCDATA;', ttl=600)
     
     # Print results.
-    #for row in dbdata.itertuples():
-    #    st.write(f"{row.time_stamp} has a value {row.dimension} of {row.value}")
+    for row in dbdata.itertuples():
+        st.write(f"{row.time_stamp} has a value {row.dimension} of {row.value}")
         
 def main():
     st.set_page_config(layout="wide")
