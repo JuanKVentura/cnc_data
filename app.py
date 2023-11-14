@@ -46,6 +46,8 @@ def historical_data_tab():
     try:
         conn = st.connection('mysql', type='sql')
         st.sucess("DB connection OK")
+    except:
+        pass
         
     # Perform query.
     #dbdata = conn.query('SELECT * from CNCDATA;', ttl=600)
