@@ -1,4 +1,4 @@
-streamlit
+w3oroprj
 SQLAlchemy==1.4.0
 mysqlclient==2.2.0
 
