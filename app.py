@@ -42,7 +42,18 @@ def results_tab():
 
 def historical_data_tab():
     st.write("## Historical Data")
-    st.write(df)
+        # Initialize connection.
+    try:
+        conn = st.connection('mysql', type='sql')
+        st.sucess("DB connection OK")
+        
+    # Perform query.
+    dbdata = conn.query('SELECT * from CNCDATA;', ttl=600)
+    
+    # Print results.
+    for row in dbdata.itertuples():
+        st.write(f"{row.time_stamp} has a value {row.dimension} of {row.value}")
+        
 def main():
     st.set_page_config(layout="wide")
     st.title("CNC data")
@@ -57,17 +68,6 @@ def main():
             """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
-    # Initialize connection.
-    try:
-        conn = st.connection('mysql', type='sql')
-        st.sucess("DB connection OK")
-        
-    # Perform query.
-    df = conn.query('SELECT * from CNCDATA;', ttl=600)
-    
-    # Print results.
-    for row in df.itertuples():
-        st.write(f"{row.time_stamp} has a value {row.dimension} of {row.value}")
     
     if data_load_failed:
         st.write("data could not be loaded please contact your app admin")
