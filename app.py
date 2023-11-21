@@ -11,9 +11,9 @@ def main():
 
     st.markdown("---")  # Add a horizontal line for separation
 
-    # Displaying the PDF
+    # Displaying the PDF as a link
     pdf_url = "https://iweb.palliser.ca/pfurn/mfgengineering/Work%20Instructions%20%20Mexico/WI%20ARMADO%20APEX.pdf"
-    st.markdown(f'<iframe src="{pdf_url}" width="100%" height="600px" style="border: none;"></iframe>', unsafe_allow_html=True)
+    st.markdown(f'[Open PDF in a new tab]({pdf_url})')
 
 if __name__ == "__main__":
     main()
