@@ -9,11 +9,17 @@ def main():
         unsafe_allow_html=True
     )
 
-    st.markdown("---")  # Add a horizontal line for separation
+def displayPDF("https://iweb.palliser.ca/pfurn/mfgengineering/Work%20Instructions%20%20Mexico/WI%20ARMADO%20APEX.pdf"):
+    # Opening file from file path
+    with open(file, "rb") as f:
+        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
 
-    # Displaying the PDF as a link
-    pdf_url = "https://iweb.palliser.ca/pfurn/mfgengineering/Work%20Instructions%20%20Mexico/WI%20ARMADO%20APEX.pdf"
-    st.markdown(f'[Open PDF in a new tab]({pdf_url})')
+    # Embedding PDF in HTML
+pdf_display = F'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
+
+    # Displaying File
+st.markdown(pdf_display, unsafe_allow_html=True)
+
 
 if __name__ == "__main__":
     main()
